@@ -8,18 +8,22 @@ let username = document.getElementById('username');
 let btn = document.getElementById('send');
 let output = document.getElementById('outpout');
 let actions = document.getElementById('actions');
+let status = document.getElementById('status');
+let numCon = document.getElementById('NumConexion');
+let pNum = document.getElementById('num');
 
 username.value = user;
-if(user == '' || user == null){
+if (user == '' || user == null) {
     username.value = 'Anonimo';
     user = "Anonimo";
 }
 
 btn.addEventListener('click', function () {
 
-    if(user == ''){
+    if (user == '') {
         user = 'Anonimo'
     }
+
     socket.emit('chat:message', {
         hour: `${time.getHours()}:${time.getMinutes()}`,
         message: message.value,
@@ -30,7 +34,21 @@ btn.addEventListener('click', function () {
 });
 
 message.addEventListener('keypress', function (data) {
-    socket.emit('chat:typing', username.value);
+    socket.emit('chat:typing', {
+        username: user
+    });
+});
+
+socket.on('connect', (data) =>{
+    socket.emit('new:connection', {
+        username: user
+    });
+});
+
+socket.on('disconnect', (data) => {
+    socket.emit('leave:connection', {
+        username: user
+    });
 });
 
 socket.on('chat:message', function (data) {
@@ -45,7 +63,23 @@ socket.on('chat:message', function (data) {
 socket.on('chat:typing', function (data) {
     actions.innerHTML = `<p 
     class = "accion animate__animated animate__pulse animate__infinite"><em>
-    ${data} is typing a message ...
+    ${data.username} is typing a message ...
     </em></p>`
+});
+
+socket.on('new:connection', function (data){
+    console.log(data.socketCount)
+    numCon.innerHTML =`<p>En linea ${data.socketCount}</p>`
+    status.innerHTML += `<p class='conexion'>
+    ${data.user} se ha conectado
+    </p>`;
+});
+
+socket.on('leave:connection', function(data) {
+    console.log(data.socketCount)
+    numCon.innerHTML =`<p>En linea ${data.socketCount}</p>`
+    status.innerHTML += `<p class='conexion'>
+    Un usuario se ha desconectado
+    </p>`
 });
 
