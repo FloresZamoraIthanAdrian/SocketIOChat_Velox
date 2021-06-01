@@ -25,20 +25,21 @@ btn.addEventListener('click', function () {
         message: message.value,
         username: user
     });
+    message.value = '';
 
 });
 
-message.addEventListener('keypress', function () {
-    socket.emit('chat:typing', username.value)
-});
-
-socket.on('new:connection', function (data){
-    socket.emit
+message.addEventListener('keypress', function (data) {
+    socket.emit('chat:typing', username.value);
 });
 
 socket.on('chat:message', function (data) {
     actions.innerHTML = '';
-    output.value += `${data.username} : ${data.message} - ( ${data.hour} )\n`
+    output.innerHTML += `<div class='grid-message'>
+    <p class='nom-usu'>${data.username}: </p>
+    <p class='mensaje'>${data.message}</p>
+    <p class='dhora'>(${data.hour})</p>
+    </div>`
 });
 
 socket.on('chat:typing', function (data) {

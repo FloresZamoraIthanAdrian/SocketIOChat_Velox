@@ -118,8 +118,6 @@ h3 {
     border-bottom: 1px solid silver;
 }
 
-/*------------------------------------------------------------------------*/
-
 /*Imagenes*/
 
 .imagen {
@@ -239,9 +237,13 @@ textarea {
     border-radius: 4px;
     height: 400px;
     font-size: 20px;
+    margin-left: 10px;
     border: none;
     border-bottom: 3px solid #ccc9c9;
     margin-bottom: 0;
+    overflow: auto;
+    background-color: white;
+    width: 90%;
 }
 
 #username {
@@ -300,4 +302,27 @@ textarea {
     color: #9f0000;
     box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.3);
     transform: scale(1.02, 1.02);
+}
+
+.grid-message{
+    display: grid;
+    grid-template-columns: 15% 75% 10%;
+}
+
+.mensaje{
+    border-bottom: 2px solid #ccc9c9;
+    color: #000000;
+}
+
+.dhora{
+    color: #1c62c4;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.nom-usu{
+    display: grid;
+    align-items: center;
+    justify-content: center;
 }
