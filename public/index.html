@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -15,57 +14,44 @@
     <script src="https://kit.fontawesome.com/9fb0a1aa63.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
-
 <body>
     <header>
         <div class="container logo-nav-container">
             <p class="logo animate__animated animate__zoomInLeft"><i class="fas fa-comments"></i> Foro</p>
             <div class="espacio"></div>
-            <span class="menu-icon animate__animated animate__zoomInRight">Ver Menú <i
-                    class="fas fa-chevron-down"></i></span>
+            <span class="menu-icon animate__animated animate__zoomInRight">Ver Menú <i class="fas fa-chevron-down"></i></span>
             <nav>
                 <ul class="animate__animated animate__zoomInRight">
                     <li onclick="javascript:formulario()" id="margenNav"><i class="far fa-smile"></i> ¡Formularios!</li>
                     <li onclick="javascript:resultado()"><i class="fas fa-poll"></i> Resultados</li>
-                    <div class="espaciado"></div>
                     <li onclick="javascript:cuenta()" id="margenNav2"><i class="fas fa-user-circle"></i> Cuenta</li>
-                    <li onclick="javascript:info()"><i class="fas fa-book-open"></i> Información</li>
                 </ul>
             </nav>
         </div>
     </header>
-
     <section>
         <main>
-
-            <image class="imagenHumano animate__animated animate__pulse animate__infinite"
-                src='imagenes/EscudoVelox2.png' title="Presióname para regresar al inicio del sitio web <3"
-                alt="No se porque no carga :c" onclick="javascript:inicio()"></image>
-
+            <image class="imagenHumano animate__animated animate__pulse animate__infinite" src='imagenes/EscudoVelox2.png' title="Presióname para regresar al inicio del sitio web <3" alt="No se porque no carga :c" onclick="javascript:inicio()"></image>
             <div class="chat_contenedor">
-                <div class="chat-window">
-                    <div id="outpout"></div>
-                    <div id="actions"></div>
-                    <input type="text" id="username" readonly>
-                    <textarea placeholder="Ingresa tu mensaje" id="message"></textarea>
-                    <button id="send">Enviar</button>
-                </div>
+                <input type="text" id="username" readonly>
+                <div id="outpout"></div>
+                <div id="actions"></div>
+                <textarea placeholder="Ingresa tu mensaje" id="message"></textarea>
+                <button id="send">Enviar <i class="fas fa-paper-plane"></i></button>
                 <div id="status">
                     <div id="NumConexion">
                         <!-- <p id="num"></p> -->
                     </div>
                 </div>
             </div>
-
         </main>
     </section>
-
     <footer>
         <h3>Redes Sociales</h3>
         <ul>
-            <li onclick="javascript:facebook()"><i class="fab fa-facebook-square"></i> Facebook</li>
-            <li onclick="javascript:instagram()"><i class="fab fa-instagram"></i> Instagram</li>
-            <li onclick="javascript:twitter()"><i class="fab fa-twitter"></i> Twitter</li>
+            <a href="https://www.facebook.com/VeloxSoftware" target="_blank"><li><i class="fab fa-facebook-square"></i> Facebook</li></a>
+            <a href="https://www.instagram.com/veloxsoftware/" target="_blank"><li><i class="fab fa-instagram"></i> Instagram</li></a>
+            <a href="https://twitter.com/SoftwareVelox" target="_blank"><li><i class="fab fa-twitter"></i> Twitter</li></a>
         </ul>
         <h3>Correo Electrónico</h3>
         <ul>
@@ -73,24 +59,40 @@
         </ul>
         <h3>Página Web</h3>
         <ul>
-            <li onclick="javascript:velox()">VeloxSoftware.com</a></li>
+            <a href="https://giancarlogall.github.io/VeloxPagina/" target="_blank"><li>VeloxSoftware.com</li></a>
         </ul>
         <h3>Integrantes</h3>
         <div class="nombres">
-            <ul onclick="javascript:velox()">
-                <li>Castañeda Rodríguez<br>Rafael Gil</li>
-                <li>Coronado Segundo<br>Juan Yael</li>
-                <li>Flores Zamora<br>Ithan Adrian</li>
-                <li>Gallegos González<br>Gian Carlo</li>
-                <li>Pérez López<br>Jesús Eduardo</li>
-                <li>Salazar Valdez<br>Ángel Yahir</li>
+            <ul>
+                <a href="https://giancarlogall.github.io/VeloxPagina/" target="_blank">
+                    <li>Castañeda Rodríguez<br>Rafael Gil</li>
+                    <li>Coronado Segundo<br>Juan Yael</li>
+                    <li>Flores Zamora<br>Ithan Adrian</li>
+                    <li>Gallegos González<br>Gian Carlo</li>
+                    <li>Pérez López<br>Jesús Eduardo</li>
+                    <li>Salazar Valdez<br>Ángel Yahir</li>
+                </a>
             </ul>
         </div>
-
         <script src="/socket.io/socket.io.js"></script>
         <script src="chat.js"></script>
-
     </footer>
 </body>
+<script>
+    jQuery('document').ready(function($){
+        var menuBtn = $('.menu-icon'),
+            menu = $('nav ul');
 
+        menuBtn.click(function(){
+            if(menu.hasClass('show')){
+
+                menu.removeClass('show');
+
+            } else {
+
+                menu.addClass('show')
+            }
+        });
+    });
+</script>
 </html>
