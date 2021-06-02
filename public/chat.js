@@ -62,8 +62,8 @@ socket.on('chat:message', function (data) {
 
 socket.on('chat:typing', function (data) {
     actions.innerHTML = `<p 
-    class = "accion animate__animated animate__pulse animate__infinite"><em>
-    ${data.username} is typing a message ...
+    style='padding-left: 16px;' class = "accion animate__animated animate__pulse animate__infinite"><em>
+    ${data.username} esta escribiendo un mensaje...
     </em></p>`
 });
 

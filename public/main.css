@@ -250,6 +250,7 @@ h3 {
     border-radius: 5px;
     border-left: 2px solid #9f0000;
     border-bottom: 2px solid silver;
+    overflow: auto;
 }
 #NumConexion{
     padding: 10px;
@@ -346,6 +347,7 @@ h3 {
     }
     #status{
         width: 90%;
+        overflow: auto;
     }
     #NumConexion{
         width: 50%;
