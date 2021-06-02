@@ -149,6 +149,7 @@ h3 {
     padding: 5px;
 }
 #outpout{
+    overflow: auto;
     display: block;
     height: 260px;
     width: 98%;
@@ -331,6 +332,7 @@ h3 {
     }
     #outpout{
         width: 95%;
+        overflow: auto;
     }
     #username{
         width: 80%;
