@@ -334,6 +334,7 @@ h3 {
     #outpout{
         width: 95%;
         overflow: auto;
+        font-size: 1em;
     }
     #username{
         width: 80%;
